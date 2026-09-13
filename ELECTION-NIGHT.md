@@ -144,9 +144,11 @@ stacked party chart with the 175-seat majority line, and party totals split into
 fixed and adjustment seats. It also shows the bloc seat history, counted and
 estimated eventual vote shares, valid votes reported and geographical coverage.
 The report now adds central 50%/90% seat ranges, joint bloc seat distributions,
-vote-share ranges and uncertainty shading in the history. These come from 1,000
-approximate Bayesian simulations by default. Use `--draws 2000` for finer Monte
-Carlo resolution. The point projection remains unchanged. The detailed fixed
+vote-share ranges and uncertainty shading in the history. These come from 4,000
+approximate Bayesian simulations by default. Use `--draws 8000` for finer Monte
+Carlo resolution. Bloc cards also show the fraction of simulations with at least
+175 seats as an estimated majority probability, conditional on the model assumptions.
+The point projection remains unchanged. The detailed fixed
 and adjustment-seat breakdown can be expanded below the party table.
 `outputs/latest-production/constituency-seats.csv` provides the projected
 party allocation in each constituency. District CSVs retain constituency codes.

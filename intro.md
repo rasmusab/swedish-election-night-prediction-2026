@@ -216,11 +216,11 @@ Simulated shares are kept nonnegative and normalized, and outstanding ordinary v
 
 ### From joint draws to party and bloc ranges
 
-By default, an update produces **1,000 joint election draws**. Each draw is aggregated by constituency and receives a complete seat allocation. Bloc seats are summed within that draw, and only then are their quantiles calculated. Adding the endpoints of individual party intervals would not give a valid bloc interval.
+By default, an update produces **4,000 joint election draws**. Each draw is aggregated by constituency and receives a complete seat allocation. Bloc seats are summed within that draw, and only then are their quantiles calculated. Adding the endpoints of individual party intervals would not give a valid bloc interval.
 
 A party near 4% can have two separated groups of seat outcomes: no seats below the threshold and a substantial allocation above it. A single interval can hide this structure, which is why the project retains seat histograms and individual simulated allocations. The headline allocation comes from the point vote forecast; separate party medians need not add up to 349.
 
-Majority probabilities are calculated for diagnostics but are not displayed as calibrated winning probabilities in the HTML. More draws reduce Monte Carlo noise, not model misspecification. With 1,000 draws, a simulated probability near 50% has about 1.6 percentage points of Monte Carlo standard error alone.
+Each bloc’s estimated majority probability is displayed in the HTML: the proportion of joint simulations in which it receives at least 175 seats. These are conditional model probabilities, not calibrated winning chances. Whole percentages are shown, with <1% and >99% used for values that would round to 0% and 100%. More draws reduce Monte Carlo noise, not model misspecification. With 4,000 draws, a simulated probability near 50% has about 0.8 percentage points of Monte Carlo standard error alone.
 
 ## 7. How do we run it in Python?
 
@@ -255,7 +255,7 @@ from val2026.locking import update_lock
 from val2026.election_report import run_cycle
 
 with update_lock(ROOT):
-    state = run_cycle(ROOT, "rehearsal", simulation_draws=1000)
+    state = run_cycle(ROOT, "rehearsal", simulation_draws=4000)
 
 # A failed update may retain an older estimate. Check its health and timestamps.
 print(state["health"], state.get("source_updated_at"))

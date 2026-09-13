@@ -115,6 +115,9 @@ class PredictiveUncertaintyTests(unittest.TestCase):
         self.assertGreater(liberal['seats']['upper_90'], 10)
         self.assertTrue(np.all(np.array(result['seat_draws']).sum(axis=1) == 349))
         self.assertEqual(sum(b['majority_probability'] for b in result['blocs']), 1)
+        for bloc in result['blocs']:
+            totals = np.array(result['seat_draws'])[:, [PARTIES.index(p) for p in bloc['parties']]].sum(axis=1)
+            self.assertEqual(bloc['majority_probability'], np.count_nonzero(totals >= 175) / len(totals))
 
 
 if __name__ == '__main__':

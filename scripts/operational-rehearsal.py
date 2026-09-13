@@ -21,11 +21,12 @@ from time import perf_counter
 from urllib.error import URLError
 
 from val2026 import ROOT
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 from val2026.election_feed import (Collector, HttpClient, FetchError, RetryDeferred,
                                   atomic_write, json_bytes, record_retry_deadline)
 from scripts.rehearsal_scenarios import copy_inputs
 
-DRAW_COUNT = 1000
+DRAW_COUNT = DEFAULT_DRAWS
 COOLDOWN_PATH = Path('data/collector/retry-not-before.json')
 PRESERVED_FIELDS = ('parties', 'seat_allocation', 'blocs', 'uncertainty',
                     'estimate_generated_at_utc', 'history', 'aggregate_reconciliation')
@@ -128,7 +129,7 @@ def require_forecast(state):
     if state.get('health') == 'update_failed':
         raise RuntimeError(state.get('error', 'Forecast failed'))
     if state.get('uncertainty', {}).get('draws') != DRAW_COUNT:
-        raise AssertionError('The real rehearsal did not generate 1,000 uncertainty simulations')
+        raise AssertionError(f'The real rehearsal did not generate {DRAW_COUNT:,} uncertainty simulations')
     if state.get('aggregate_reconciliation', {}).get('status') != 'reconciled':
         raise AssertionError('The real rehearsal did not reconcile official aggregates')
     if sum(p['forecast_seats'] for p in state['parties']) != 349:

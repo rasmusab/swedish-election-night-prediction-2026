@@ -5,11 +5,11 @@
     "outputs/selected-model.json": "3783e7cd95bda602536cf14b57d121175f7e0ba12e674a04f5661beb4ff127a5",
     "uv.lock": "b112e770a1a00bc9ebe6e6669aac92d13dde6f093c3c8969cf8bc7aaf2b5f98b",
     "val2026/seats.py": "12355d570095480d3adfbdb22cf3f6883d1054598ffd5c46ce868a704404f068",
-    "val2026/uncertainty.py": "2e0062950ec887d24111de2001901d58418b659c3a6a7b7f6c82119047cd9978",
-    "val2026/forecast_uncertainty.py": "481d42af635e16c65ac37fc2c233c08ceeb327fe5d9f0a02913930166242b124"
+    "val2026/uncertainty.py": "fcc7808b6c5ccfff1efe61411dcf71127019f242fd7f997e7c6151bc040d8173",
+    "val2026/forecast_uncertainty.py": "71004430b3488eeede032a9790dd62e6520b0b326291f50c1396dc323653d541"
   },
   "purpose": "Frozen model options, implementation and runtime for the 2026 launch. No live hyperparameter selection.",
-  "lock_id": "153cff8aae010a4f89a18c12",
+  "lock_id": "2ac705fa77834f012a1c85c4",
   "layout_revision": {
     "previous_lock_id": "9f0488c52cf866e60d5a957c",
     "reason": "Files moved into val2026/ and imports qualified; project installed editable by uv. Model syntax and runtime dependency versions unchanged."
@@ -22,5 +22,10 @@
     "previous_lock_id": "ebc3e7871ddccaf21a52c8bd",
     "checkpoint_commit": "3239c6029a14ae2fa6bd655ef092f45094f64b64",
     "reason": "Add approximate Bayesian joint predictive simulations and seat summaries; point regression, seat rules and dependencies unchanged."
+  },
+  "majority_display_revision": {
+    "previous_lock_id": "153cff8aae010a4f89a18c12",
+    "date": "2026-09-13",
+    "reason": "Increase the default joint simulation count to 4000 and display existing bloc majority probabilities. Point model, allocation rules and uncertainty scales unchanged."
   }
 }

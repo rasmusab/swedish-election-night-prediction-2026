@@ -129,5 +129,6 @@ The report now leads with party seats and the requested bloc comparison.
 Approximate Bayesian joint simulations now provide 50%/90% party and bloc seat
 ranges. The 2018→2022 uncertainty diagnostic scores 80 cases including component
 removals and systematic-scale sensitivity. The ranges are assumption-based and
-conservative in these checks; no majority probabilities are published. See
+conservative in these checks; displayed majority probabilities are conditional
+on the model assumptions. See
 `UNCERTAINTY.md` and `outputs/predictive-uncertainty-report.md`.

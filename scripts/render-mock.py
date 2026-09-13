@@ -20,6 +20,7 @@ import numpy as np
 
 from val2026 import ROOT
 from val2026.election_forecast import load_inputs
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 from val2026.election_feed import atomic_write, json_bytes
 from val2026.election_report import plot_bloc_seats, plot_bloc_uncertainty, plot_history
 from scripts.rehearsal_scenarios import Scenario, partial
@@ -33,7 +34,7 @@ def main():
     exporter = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(exporter)
     with tempfile.TemporaryDirectory(prefix='val2026-mock-') as temporary:
-        scenario = Scenario(Path(temporary), draws=1000)
+        scenario = Scenario(Path(temporary), draws=DEFAULT_DRAWS)
         features, _ = load_inputs(scenario.root)
         ordinary = features[features.kind.eq('ordinary')].copy()
         rng = np.random.default_rng(20260913)

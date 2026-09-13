@@ -22,8 +22,9 @@ copy and supporting artifacts stay in `outputs/report-production/`. GitHub Pages
 can serve `main` → `/(root)`; see [PUBLICATION.md](PUBLICATION.md).
 Projected seats are the headline result, with party fixed/adjustment seats and
 the V+S+MP+C versus M+L+KD+SD chart (175 seats for a majority).
-It also shows 50%/90% seat ranges and simulated bloc distributions from 1,000
-joint approximate Bayesian draws. These are assumption-based ranges, not
+It also shows 50%/90% seat ranges, simulated bloc distributions and each bloc’s
+estimated probability of at least 175 seats, from 4,000 joint approximate
+Bayesian draws. These are assumption-based estimates, not
 calibrated winner probabilities. See [UNCERTAINTY.md](UNCERTAINTY.md).
 Run it again every ten minutes when wanted. No automatic monitor is running.
 
@@ -51,7 +52,7 @@ uv run scripts/operational-rehearsal.py
 ```
 
 The operational rehearsal uses the real public test feed, verifies signatures
-and national/constituency/municipality totals, generates 1,000 uncertainty draws
+and national/constituency/municipality totals, generates 4,000 uncertainty draws
 and HTML, then tests a simulated connection failure and real recovery. It saves
 evidence under `outputs/operational-rehearsal/` and does not replace the normal
 production or mock reports. It respects the same server cooldown as normal updates.
@@ -137,7 +138,7 @@ The seat backtest keeps that model unchanged, checks the allocator against
 official 2018 and 2022 seats, and scores the rolling 2022 seat forecasts.
 See [seat-backtest-summary.md](outputs/seat-backtest-summary.md) and
 `outputs/seat-backtest-performance.png`. Seat estimates are point projections;
-uncertainty is now evaluated separately; majority probabilities remain diagnostic.
+uncertainty is now evaluated separately; estimated bloc majority probabilities are shown under the model assumptions.
 
 `scripts/prepare-history.py` builds actual 2026 baselines and a 2018→2022 backtest table.
 `PREPARATION.md` explains the changed-district and late-vote treatment. See

@@ -7347,8 +7347,8 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput" id="cell-id=7ecb74b0">
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=21cb29de">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput" id="cell-id=fe57cd2e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=94c2c939">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7362,6 +7362,7 @@ body {color:#182536;background:#f4f6f9;font-family:system-ui,sans-serif} .jp-Not
 .test-note {border-left:4px solid #b36a12;background:#fff4df;padding:12px} .metrics {display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
 .metric {border-top:2px solid #283e59;padding:12px 0} .metric span {display:block;color:#586778;font-size:.85rem} .metric strong {display:block;font-size:1.75rem;margin-top:8px}
 .bloc-cards {display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:20px 0} .bloc-card {padding:18px;background:#f3f6fa;border-radius:6px} .bloc-card strong {font-size:2.5rem;display:block;line-height:1.4} .bloc-card small {display:block;color:#586778} .seat-total {font-weight:700}
+.majority-probability {margin-top:16px;padding-top:12px;border-top:1px solid #d5dfe9} .majority-probability b {display:block;font-size:1.8rem;line-height:1.4}
 table {width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums} th,td {padding:9px!important;text-align:right!important;border-bottom:1px solid #e5e9ef} th:first-child,td:first-child {text-align:left!important}
 .times {font-size:.85rem;color:#586778;line-height:1.7} img {max-width:100%;height:auto} @media(max-width:650px) {.metrics{grid-template-columns:repeat(2,1fr)} .jp-Notebook{padding:10px!important} h1{font-size:1.8rem!important}}
 </style><div class="eyebrow">SWEDEN · RIKSDAG 2026</div><h1>Election-night estimate</h1>
@@ -7369,14 +7370,14 @@ table {width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums} th
 <p>Election day is 13 September. Polls close at 20:00 Swedish time.</p><details><summary>Update details</summary><p>Expected one preliminary national Riksdag archive; found []</p></details>
 <div class="metrics"><div class="metric"><span>Districts reporting</span><strong>—</strong></div><div class="metric"><span>Expected ordinary votes covered</span><strong>—</strong></div><div class="metric"><span>Counties reporting</span><strong>0 / —</strong></div><div class="metric"><span>Reported valid votes</span><strong>0</strong></div></div><div class="times">
 Source updated: Not available<br/>
-Latest fetch attempt: 13 Sep 10:27:49 CEST<br/>
+Latest fetch attempt: 13 Sep 13:59:43 CEST<br/>
 Estimate computed: Not available<br/>
-Page generated: 13 Sep 10:27:49 CEST</div>
+Page generated: 13 Sep 13:59:43 CEST</div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=2ad5864c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=d3009100">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7397,7 +7398,7 @@ Page generated: 13 Sep 10:27:49 CEST</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=6ec07527">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noInput" id="cell-id=2802fa18">
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
@@ -7408,7 +7409,7 @@ Page generated: 13 Sep 10:27:49 CEST</div>
 <p>Forecast votes are added up in each of the 29 Riksdag constituencies, including their late-vote pools. The seat calculation uses the official 2026 distribution of 310 fixed seats and 39 adjustment seats, the modified Sainte-Laguë method, the 4% national threshold and the 12% constituency exception. Excess fixed seats are returned and redistributed under the electoral rules before adjustment seats are placed.</p>
 <p>The pooled ÖVR category contributes to the threshold denominator but receives no seats. The projection assumes no individual party within that pool qualifies nationally or locally. It allocates seats between parties; candidate shortages are not modelled.</p>
 <p>The headline seats are implied by the unchanged point vote forecast. The accompanying ranges come from approximate Bayesian predictive simulations: shared regression-parameter draws and district variation, with explicit additional assumptions about reporting imbalance, late votes and final-count revisions. Every draw is allocated separately. The simulated mean or median may differ from the point projection; individual party medians and interval endpoints need not add to 349.</p>
-<p>Reported votes remain fixed within simulations of the preliminary count. A separate assumed revision effect produces possible final counts, so the final-result ranges need not collapse when every preliminary district has reported. This does not download or mix in the final feed. The scale of systematic errors is partly assumed, and the historical checks reuse one election; displayed ranges are not calibrated guarantees. Small vote changes around a threshold can move many seats. The two bloc totals represent the stated party groupings, not government formation. Majority probabilities are not published.</p>
+<p>Reported votes remain fixed within simulations of the preliminary count. A separate assumed revision effect produces possible final counts, so the final-result ranges need not collapse when every preliminary district has reported. This does not download or mix in the final feed. The scale of systematic errors is partly assumed, and the historical checks reuse one election; displayed ranges are not calibrated guarantees. Small vote changes around a threshold can move many seats. The two bloc totals represent the stated party groupings, not government formation. Majority probabilities count the joint simulations with at least 175 bloc seats. They are conditional on these assumptions and are not calibrated guarantees.</p>
 <p>Unreported districts are missing observations, not zero votes. Revisions replace prior counts. A source older than 15 minutes is flagged even if the fetch succeeds; during the scheduled pause this is expected. Reload this static page to see a newly published report.</p>
 <p>Sources: <a href="https://www.val.se/valresultat-och-statistik/statistik-och-data/teknisk-beskrivning-av-resultatfiler">Valmyndigheten’s result-feed documentation</a>, <a href="https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026">2026 geography, electorate and fixed seats</a>, <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/vallag-2005837_sfs-2005-837/">Vallagen, chapter 14</a>. All displayed times are Swedish local time.</p>
 </div>

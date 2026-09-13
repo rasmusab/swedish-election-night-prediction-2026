@@ -29,6 +29,7 @@ from val2026.election_data import PARTIES
 from val2026.election_feed import atomic_write, json_bytes, source_freshness, validate_result
 from val2026.forecast_model import SwingRegression
 from val2026.seats import allocate_riksdag
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 
 from val2026 import ROOT
 PARTY_CODES = {"0001": "M", "0004": "C", "0003": "L", "0068": "KD",
@@ -335,7 +336,7 @@ def frozen_model(root):
     return name, config["models"][name], lock
 
 
-def evaluate_snapshot(root, environment, features, input_manifest, receipt, source, *, now=None, simulation_draws=1000):
+def evaluate_snapshot(root, environment, features, input_manifest, receipt, source, *, now=None, simulation_draws=DEFAULT_DRAWS):
     now = now or datetime.now(timezone.utc)
     roster, complete, provenance = resolve_roster(root, environment, features, source, receipt)
     observed, partial, raw, alignment = align_observed(features, source["valdistrikt"], roster,

@@ -15,12 +15,13 @@ import matplotlib.pyplot as plt
 from val2026.election_report import (ROOT, run_cycle, update_lock, header_html, party_table,
                              seat_summary_html, plot_bloc_seats, uncertainty_html, plot_bloc_uncertainty,
                              plot_shares, plot_coverage, plot_history, methods_html)
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 
 # Set these two values when running the notebook interactively.
 environment = os.environ.get('VAL2026_ENVIRONMENT', 'production')
 collect_latest = os.environ.get('VAL2026_OFFLINE', '0') != '1'
 project_root = Path(os.environ.get('VAL2026_PROJECT_ROOT', str(ROOT)))
-simulation_draws = int(os.environ.get('VAL2026_UNCERTAINTY_DRAWS', '1000'))
+simulation_draws = int(os.environ.get('VAL2026_UNCERTAINTY_DRAWS', str(DEFAULT_DRAWS)))
 
 # %%
 # Pull one official snapshot, validate it, fit the frozen model and retain state.

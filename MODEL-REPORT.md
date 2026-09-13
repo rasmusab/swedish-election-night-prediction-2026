@@ -31,8 +31,8 @@ Full results, scoring definitions and limitations are in
 [the seat backtest report](outputs/seat-backtest-summary.md). Run
 `uv run scripts/backtest-seats.py` to reproduce it. Vote fitting plus allocation
 was under 0.02 seconds per selected-model case. No model parameters changed.
-Approximate Bayesian intervals have since been added; majority probabilities
-remain diagnostic rather than published. The displayed
+Approximate Bayesian intervals have since been added; estimated majority
+probabilities are displayed under the model assumptions. The displayed
 seats are the allocation implied by a single vote forecast, not mean seats over
 possible outcomes. ÖVR stays in threshold denominators but receives no seats;
 the forecast assumes no individual party in that pool qualifies.
@@ -185,9 +185,10 @@ using 2022, so this is not an untouched election holdout.
 
 See [the full diagnostic](outputs/predictive-uncertainty-report.md) for the
 stage-specific results and sensitivity, and [UNCERTAINTY.md](UNCERTAINTY.md)
-for assumptions and operational details. The report uses 1,000 draws by default
-and retains the joint seat draws for inspection. It does not publish majority
-probabilities. Another historical election pair remains a substantive next check.
+for assumptions and operational details. The report uses 4,000 draws by default
+and retains the joint seat draws for inspection. Bloc majority probabilities
+are the fraction of simulations with at least 175 seats. Another historical
+election pair remains a substantive next check.
 
 ## Earlier uncertainty experiments
 

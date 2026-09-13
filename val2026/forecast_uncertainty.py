@@ -10,7 +10,7 @@ import numpy as np
 from val2026.election_data import PARTIES
 from val2026.seats import allocate_riksdag
 
-DEFAULT_DRAWS = 1000
+DEFAULT_DRAWS = 4000
 DEFAULT_SEED = 2026
 BLOCS = (("V + S + MP + C", ("V", "S", "MP", "C")),
          ("M + L + KD + SD", ("M", "L", "KD", "SD")))

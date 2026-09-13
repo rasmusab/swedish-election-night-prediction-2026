@@ -89,8 +89,8 @@ The independently implemented allocator handles thresholds, returned fixed
 seats and adjustment seats. ÖVR contributes to threshold denominators but is
 excluded from seats; no individual party within that pool is assumed to qualify.
 Approximate Bayesian joint simulations now supply central 50%/90% seat ranges.
-The point projection is unchanged; majority probabilities remain diagnostic
-rather than published. See [UNCERTAINTY.md](UNCERTAINTY.md).
+The point projection is unchanged; estimated bloc majority probabilities are displayed
+under the model assumptions. See [UNCERTAINTY.md](UNCERTAINTY.md).
 
 Run `uv run scripts/backtest-seats.py` for historical allocation validation and
 rolling seat scores. Full results are in

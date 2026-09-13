@@ -182,6 +182,43 @@ class ReportWorkflowTests(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
+class MajorityPresentationTests(unittest.TestCase):
+    def state(self, probabilities):
+        return {'seat_allocation': {'ties': []},
+                'blocs': [{'name': name, 'seats': seats, 'majority_threshold': 175}
+                          for name, seats in [('V + S + MP + C', 178), ('M + L + KD + SD', 171)]],
+                'uncertainty': {'draws': 4000, 'blocs': [
+                    {'name': name, 'majority_probability': p} for name, p in
+                    zip(['V + S + MP + C', 'M + L + KD + SD'], probabilities)]}}
+
+    def test_majority_probabilities_use_joint_draws_and_match_bloc_names(self):
+        from val2026.election_report import seat_summary_html
+        state = self.state([.73, .27])
+        state['uncertainty']['blocs'].reverse()
+        html = seat_summary_html(state)
+        self.assertLess(html.index('73%'), html.index('M + L + KD + SD'))
+        self.assertIn('<b>27%</b>', html)
+        self.assertEqual(html.count('Estimated probability of a seat majority'), 2)
+        self.assertIn('4,000 simulated elections', html)
+        self.assertIn('175 seats', html)
+
+    def test_simulation_endpoints_are_not_presented_as_certainty(self):
+        from val2026.election_report import seat_summary_html
+        html = seat_summary_html(self.state([0, 1]))
+        self.assertIn('<b>&lt;1%</b>', html)
+        self.assertIn('<b>&gt;99%</b>', html)
+        boundary = seat_summary_html(self.state([.005, .995]))
+        self.assertNotIn('<b>0%</b>', boundary)
+        self.assertNotIn('<b>100%</b>', boundary)
+
+    def test_waiting_or_older_state_does_not_invent_probabilities(self):
+        from val2026.election_report import seat_summary_html
+        self.assertNotIn('Estimated probability', seat_summary_html({}))
+        state = self.state([.73, .27])
+        del state['uncertainty']
+        self.assertNotIn('Estimated probability', seat_summary_html(state))
+
+
 class HtmlExportTests(unittest.TestCase):
     def test_only_default_production_render_updates_homepage(self):
         from unittest.mock import patch

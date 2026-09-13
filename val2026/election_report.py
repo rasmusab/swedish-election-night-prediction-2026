@@ -12,6 +12,7 @@ import pandas as pd
 from val2026.election_feed import BASE_URLS, Collector, FeedError, atomic_write, json_bytes, source_freshness
 from val2026.election_forecast import ROOT, load_inputs, load_snapshot, evaluate_snapshot
 from val2026.locking import update_lock
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 
 STOCKHOLM = ZoneInfo('Europe/Stockholm')
 PARTY_COLORS = {'V': '#a82332', 'S': '#d44545', 'MP': '#70a63d', 'C': '#258653',
@@ -29,7 +30,7 @@ def phase_at(now):
     return 'late_preliminary_count'
 
 
-def run_cycle(root=ROOT, environment='production', *, collect=True, now=None, collector=None, simulation_draws=1000):
+def run_cycle(root=ROOT, environment='production', *, collect=True, now=None, collector=None, simulation_draws=DEFAULT_DRAWS):
     """Called under update_lock by the notebook or export command.
 
     Final counting is never selected here. A failed collect/schema/model run
@@ -175,6 +176,7 @@ body {{color:#182536;background:#f4f6f9;font-family:system-ui,sans-serif}} .jp-N
 .test-note {{border-left:4px solid #b36a12;background:#fff4df;padding:12px}} .metrics {{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}}
 .metric {{border-top:2px solid #283e59;padding:12px 0}} .metric span {{display:block;color:#586778;font-size:.85rem}} .metric strong {{display:block;font-size:1.75rem;margin-top:8px}}
 .bloc-cards {{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:20px 0}} .bloc-card {{padding:18px;background:#f3f6fa;border-radius:6px}} .bloc-card strong {{font-size:2.5rem;display:block;line-height:1.4}} .bloc-card small {{display:block;color:#586778}} .seat-total {{font-weight:700}}
+.majority-probability {{margin-top:16px;padding-top:12px;border-top:1px solid #d5dfe9}} .majority-probability b {{display:block;font-size:1.8rem;line-height:1.4}}
 table {{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}} th,td {{padding:9px!important;text-align:right!important;border-bottom:1px solid #e5e9ef}} th:first-child,td:first-child {{text-align:left!important}}
 .times {{font-size:.85rem;color:#586778;line-height:1.7}} img {{max-width:100%;height:auto}} @media(max-width:650px) {{.metrics{{grid-template-columns:repeat(2,1fr)}} .jp-Notebook{{padding:10px!important}} h1{{font-size:1.8rem!important}}}}
 </style><div class="eyebrow">{label}</div><h1>Election-night estimate</h1>
@@ -219,6 +221,9 @@ def seat_summary_html(state):
     if not state.get('seat_allocation'):
         return '<h2>Projected Riksdag seats</h2><p>Seat estimates will appear once enough districts have reported.</p>'
     cards = []
+    probabilities = {b['name']: b['majority_probability']
+                     for b in state.get('uncertainty', {}).get('blocs', [])
+                     if b.get('majority_probability') is not None}
     for bloc in state['blocs']:
         distance = bloc['seats'] - bloc['majority_threshold']
         detail = (f'{distance} above the majority threshold' if distance > 0 else
@@ -226,15 +231,29 @@ def seat_summary_html(state):
         interval = bloc.get('uncertainty')
         ranges = (f'<small>50% range: {interval["lower_50"]}–{interval["upper_50"]} · '
                   f'90% range: {interval["lower_90"]}–{interval["upper_90"]}</small>' if interval else '')
+        probability = ''
+        if bloc['name'] in probabilities:
+            p = probabilities[bloc['name']]
+            # Avoid presenting finite simulation endpoints as certainty.
+            label = f'{p:.0%}'
+            label = '<1%' if label == '0%' else '>99%' if label == '100%' else label
+            probability = ('<div class="majority-probability">'
+                           '<small>Estimated probability of a seat majority</small>'
+                           f'<b>{escape(label)}</b><small>175 or more seats</small></div>')
         cards.append(f'<div class="bloc-card"><span>{escape(bloc["name"])}</span>'
                      f'<strong>{bloc["seats"]} <span style="font-size:1rem;font-weight:400">seats</span></strong>'
-                     f'<small>{detail}</small>{ranges}</div>')
+                     f'<small>{detail}</small>{ranges}{probability}</div>')
     allocation = state['seat_allocation']
     tie_note = (f'<p>{len(allocation["ties"])} exact quotient tie(s) were resolved by a reproducible forecast lottery; '
                 'an official lottery could differ.</p>' if allocation['ties'] else '')
+    probability_note = (
+        f'<p>Majority probabilities are the fraction of {state["uncertainty"]["draws"]:,} simulated elections '
+        'where each bloc reaches 175 seats. They depend on the model and its uncertainty assumptions; '
+        'historical testing does not establish calibrated probabilities. '
+        'Values rounding to 0% or 100% are shown as &lt;1% or &gt;99%.</p>' if probabilities else '')
     return ('<h2>Projected Riksdag seats</h2><p>349 seats · 175 needed for a majority. '
             'Headline numbers are the point projection.</p><div class="bloc-cards">' + ''.join(cards) + '</div>'
-            '<p>The two groupings below are V + S + MP + C and M + L + KD + SD.</p>' + tie_note)
+            + probability_note + '<p>The two groupings below are V + S + MP + C and M + L + KD + SD.</p>' + tie_note)
 
 
 def uncertainty_html(state):
@@ -375,6 +394,6 @@ def methods_html(state):
 <p>Forecast votes are added up in each of the 29 Riksdag constituencies, including their late-vote pools. The seat calculation uses the official 2026 distribution of 310 fixed seats and 39 adjustment seats, the modified Sainte-Laguë method, the 4% national threshold and the 12% constituency exception. Excess fixed seats are returned and redistributed under the electoral rules before adjustment seats are placed.</p>
 <p>The pooled ÖVR category contributes to the threshold denominator but receives no seats. The projection assumes no individual party within that pool qualifies nationally or locally. It allocates seats between parties; candidate shortages are not modelled.</p>
 <p>The headline seats are implied by the unchanged point vote forecast. The accompanying ranges come from approximate Bayesian predictive simulations: shared regression-parameter draws and district variation, with explicit additional assumptions about reporting imbalance, late votes and final-count revisions. Every draw is allocated separately. The simulated mean or median may differ from the point projection; individual party medians and interval endpoints need not add to 349.</p>
-<p>Reported votes remain fixed within simulations of the preliminary count. A separate assumed revision effect produces possible final counts, so the final-result ranges need not collapse when every preliminary district has reported. This does not download or mix in the final feed. The scale of systematic errors is partly assumed, and the historical checks reuse one election; displayed ranges are not calibrated guarantees. Small vote changes around a threshold can move many seats. The two bloc totals represent the stated party groupings, not government formation. Majority probabilities are not published.</p>
+<p>Reported votes remain fixed within simulations of the preliminary count. A separate assumed revision effect produces possible final counts, so the final-result ranges need not collapse when every preliminary district has reported. This does not download or mix in the final feed. The scale of systematic errors is partly assumed, and the historical checks reuse one election; displayed ranges are not calibrated guarantees. Small vote changes around a threshold can move many seats. The two bloc totals represent the stated party groupings, not government formation. Majority probabilities count the joint simulations with at least 175 bloc seats. They are conditional on these assumptions and are not calibrated guarantees.</p>
 <p>Unreported districts are missing observations, not zero votes. Revisions replace prior counts. A source older than 15 minutes is flagged even if the fetch succeeds; during the scheduled pause this is expected. Reload this static page to see a newly published report.</p>
 <p>Sources: <a href="https://www.val.se/valresultat-och-statistik/statistik-och-data/teknisk-beskrivning-av-resultatfiler">Valmyndigheten’s result-feed documentation</a>, <a href="https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026">2026 geography, electorate and fixed seats</a>, <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/vallag-2005837_sfs-2005-837/">Vallagen, chapter 14</a>. All displayed times are Swedish local time.</p>'''

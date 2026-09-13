@@ -27,9 +27,10 @@ from jupyter_client.kernelspec import KernelSpecManager
 from traitlets.config import Config
 from val2026.election_feed import atomic_write, json_bytes
 from val2026.election_report import ROOT, update_lock
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 
 
-def render(root, environment, *, offline=False, output=None, draws=1000):
+def render(root, environment, *, offline=False, output=None, draws=DEFAULT_DRAWS):
     started = perf_counter()
     destination = output or root / 'outputs' / f'report-{environment}' / 'index.html'
     with update_lock(root), tempfile.TemporaryDirectory(prefix='val2026-notebook-') as temporary:
@@ -96,7 +97,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--environment', choices=['production','rehearsal'], default='production')
     parser.add_argument('--offline', action='store_true')
-    parser.add_argument('--draws', type=int, default=1000, help='Joint uncertainty simulations (default: 1000)')
+    parser.add_argument('--draws', type=int, default=DEFAULT_DRAWS, help=f'Joint uncertainty simulations (default: {DEFAULT_DRAWS})')
     parser.add_argument('--output', type=Path, help='Custom destination for index.html')
     args = parser.parse_args(argv)
     receipt = render(ROOT, args.environment, offline=args.offline,

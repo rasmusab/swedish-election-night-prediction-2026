@@ -15,6 +15,7 @@ from scipy.special import softmax
 
 from val2026.election_data import PARTIES
 from val2026.forecast_model import clr
+from val2026.forecast_uncertainty import DEFAULT_DRAWS
 
 
 @dataclass(frozen=True)
@@ -103,7 +104,7 @@ def _reporting_balance(features, train, config):
 
 
 def simulate_constituency_votes(model, observed, *, predicted=None, partial_late=None,
-                                draws=1000, seed=2026, config=None):
+                                draws=DEFAULT_DRAWS, seed=2026, config=None):
     """Return joint final/preliminary vote draws, aggregating districts in chunks.
 
     No target-election final or unrevealed vote counts are accepted. The response

@@ -9,8 +9,9 @@ These are conditional, assumption-based predictive ranges. Fixed shrinkage and
 an estimated response covariance are conditioned on; their full posterior
 uncertainty is not sampled. Extra systematic-error scales are explicit priors,
 not identified from the currently reported districts. The one-election checks
-do not establish calibration for 2026. Majority probabilities are retained for
-diagnostics but are not published in the HTML.
+do not establish calibration for 2026. The report displays each bloc’s estimated probability of reaching at least
+175 seats, calculated from the joint simulated seat allocations. These are
+probabilities under the model assumptions, not calibrated guarantees.
 
 ## Construction and assumptions
 
@@ -94,12 +95,19 @@ scores in the diagnostic files repeatedly score the same election outcome.
 
 ## Operation and reproducibility
 
-The normal update makes 1,000 draws with a fixed seed. Use
-`uv run update-report.py --draws 2000` for finer Monte Carlo resolution. The draw
-count is recorded in report receipts and history identity. At 1,000 draws, an
-estimated probability near 50% would have roughly 1.6 percentage points of Monte
-Carlo standard error, before accounting for modelling error; it is not displayed
-as a calibrated chance in the report. Lower-draw fixtures test the workflow only.
+The normal update makes 4,000 draws with a fixed seed. Use
+`uv run update-report.py --draws 8000` for finer Monte Carlo resolution. The draw
+count is recorded in report receipts and history identity. At 4,000 draws, an
+estimated probability near 50% would have roughly 0.8 percentage points of Monte
+Carlo standard error, before accounting for modelling error. Displayed percentages are rounded to whole numbers; endpoints
+that would round to 0% or 100% appear as <1% or >99%. Lower-draw fixtures test the workflow only.
+
+On 13 September, the 4,000-draw cached rehearsal rendered a complete report in
+32.1 seconds (29.6 seconds for uncertainty). The updated partial-count mock's
+uncertainty calculation took 32.3 seconds. Both are artificial examples; runtime
+depends on reporting progress and these timings exclude a fresh network fetch.
+All 122 tests passed, including the majority probability display and joint-seat
+checks; 17 report tests also passed after checking percentage-rounding boundaries.
 
 The frozen code lock includes `val2026/uncertainty.py` and
 `val2026/forecast_uncertainty.py`. Configuration, diagnostics, seed and joint seat

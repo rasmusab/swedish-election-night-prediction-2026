@@ -2,7 +2,7 @@
   "schema_version": 1,
   "environment": "production",
   "test": false,
-  "report_generated_at_utc": "2026-09-13T23:00:01.637856+00:00",
+  "report_generated_at_utc": "2026-09-13T23:10:01.624924+00:00",
   "report_health": "update_failed",
   "estimate_available": true,
   "estimate_state": "forecast",
@@ -19,7 +19,7 @@
     "archive_md5": "530d046e174a1086a01a237b9ee88b65"
   },
   "latest_collection_check": {
-    "checked_at_utc": "2026-09-13T23:00:01.638146+00:00",
+    "checked_at_utc": "2026-09-13T23:10:01.625171+00:00",
     "status": "error",
     "collection_state": "error",
     "http_status": null
@@ -88,7 +88,7 @@
   },
   "uncertainty_method": "approximate_bayesian_predictive_simulation",
   "uncertainty_calibration_status": "assumption_based_single_election_checks",
-  "bundle_source_commit": "d81c027c35499fdff504600f173909ad89a8f40d",
+  "bundle_source_commit": "feabebcbf501d0ae90abeb8a4b0781ae04ddf0a9",
   "working_code_sha256": {
     "val2026/__init__.py": "41e26c087f648e254d05a4079d6781286ffa9db01bd6c2f42716b4fc800d46a1",
     "val2026/election_data.py": "a7743d7a3308cb0885a0d9209c52a38e3dc4a975f30539d2383ac285c8fd09e9",
@@ -114,7 +114,7 @@
   "code_note": "Working code hashes describe this export. The model lock and estimate timestamp describe the displayed forecast, which may have been retained from an earlier run.",
   "files": {
     "index.html": {
-      "sha256": "0044e3536d0be5b6810f98239d39439f7957e3756d5119cc989d7203dcf4bb09",
+      "sha256": "aafb2d82a0618dde8467cea3c325d0b4c1a5b783576f6adb6ee858a3e6032465",
       "bytes": 555737
     },
     "reference-data/baseline-2026.csv": {

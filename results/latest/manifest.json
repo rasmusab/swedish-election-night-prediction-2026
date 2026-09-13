@@ -2,7 +2,7 @@
   "schema_version": 1,
   "environment": "production",
   "test": false,
-  "report_generated_at_utc": "2026-09-13T18:10:01.684138+00:00",
+  "report_generated_at_utc": "2026-09-13T18:20:01.586844+00:00",
   "report_health": "update_failed",
   "estimate_available": false,
   "estimate_state": "waiting",
@@ -19,7 +19,7 @@
     "archive_md5": null
   },
   "latest_collection_check": {
-    "checked_at_utc": "2026-09-13T18:10:01.684423+00:00",
+    "checked_at_utc": "2026-09-13T18:20:01.587167+00:00",
     "status": "error",
     "collection_state": "error",
     "http_status": null
@@ -36,7 +36,7 @@
   "uncertainty_config": null,
   "uncertainty_method": null,
   "uncertainty_calibration_status": null,
-  "bundle_source_commit": "4e736975d0b605c749d593aecc17db0f208b0a13",
+  "bundle_source_commit": "cff71322fa9e55be69f879f3c31c7bce740e1c21",
   "working_code_sha256": {
     "val2026/__init__.py": "41e26c087f648e254d05a4079d6781286ffa9db01bd6c2f42716b4fc800d46a1",
     "val2026/election_data.py": "a7743d7a3308cb0885a0d9209c52a38e3dc4a975f30539d2383ac285c8fd09e9",
@@ -62,7 +62,7 @@
   "code_note": "Working code hashes describe this export. The model lock and estimate timestamp describe the displayed forecast, which may have been retained from an earlier run.",
   "files": {
     "index.html": {
-      "sha256": "9b67a3161285d7c974dd505a2d80bbe80a757c93dfeff42ceda052bb2e31cee1",
+      "sha256": "220ec13eda177daebccc0098e6b20f9d8a13a008ffbd64e44c9ba10cf8062aea",
       "bytes": 271136
     },
     "reference-data/baseline-2026.csv": {

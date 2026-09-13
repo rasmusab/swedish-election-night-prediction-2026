@@ -223,8 +223,9 @@ ignored folders.
 For GitHub Pages, serve **main → /(root)** with the root `.nojekyll` file.
 Commit and push the updated `index.html` to publish it; see
 [PUBLICATION.md](PUBLICATION.md). The other tracked source files are also
-accessible when serving the repository root. No remote deployment has yet been
-configured.
+accessible when serving the repository root. The public repository is
+[rasmusab/swedish-election-2026](https://github.com/rasmusab/swedish-election-2026),
+and Pages is configured at https://rasmusab.github.io/swedish-election-2026/.
 
 A [private Sites preview](https://swedish-election-2026-rasmus.rasmus-baath.chatgpt.site) is published, with explicitly labelled rehearsal and failed-update examples. It is a fixed published snapshot,
 not an automatic upload service. For updates to that preview, ask Codex to
@@ -232,10 +233,9 @@ republish the existing Site; `site/.openai/hosting.json` identifies it. The loca
 Python command does not hold reusable Sites credentials. The static source lives
 under `site/dist/` and the hosted snapshot is built from that exact source.
 
-The remaining GitHub setup is to create the public repository, add its remote,
-push `main`, and enable Pages from the root. Verify the deployed homepage after
-the first push. Local report generation does not commit, push or schedule future
-updates; those remain separate actions.
+The GitHub remote and Pages source were configured on 13 September 2026.
+Verify the deployed homepage after each push. Local report generation does not
+commit, push or schedule future updates; those remain separate actions.
 
 ## Verification performed
 

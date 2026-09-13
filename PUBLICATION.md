@@ -51,7 +51,11 @@ do not automatically replace the homepage.
 In the GitHub repository, select **Settings → Pages → Deploy from a branch →
 main → /(root)**. The root `.nojekyll` file tells GitHub to serve the static
 files directly. No separate publishing branch or custom workflow is required.
-GitHub Pages has not yet been configured remotely.
+Configured on 13 September 2026:
+
+- Repository: https://github.com/rasmusab/swedish-election-2026
+- Website: https://rasmusab.github.io/swedish-election-2026/
+- Local `origin` points to this repository; `main` tracks `origin/main`.
 
 For each update, run from the project root:
 
@@ -62,8 +66,8 @@ git commit -m "Update election-night report"
 git push origin main
 ```
 
-The remote must be configured first, and the initial push must include
-`.nojekyll` and the source files. Report generation does not commit or upload
+The initial push includes `.nojekyll` and the source files.
+Report generation does not commit or upload
 automatically. A rendered waiting or failed-update page can also be published
 to communicate feed status. If execution/export fails, the previous homepage
 remains intact; inspect the command outcome before committing.

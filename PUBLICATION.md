@@ -42,11 +42,35 @@ to local artifacts; those files will not be present in a source-only checkout.
 
 ## Publishing the website
 
-The intended public website artifact is only
-`outputs/report-production/index.html`, copied into a dedicated publishing
-branch as `index.html`. The executed notebook, caches, logs and archived Git
-history are not website assets. A publishing branch and GitHub Pages deployment
-have not yet been configured.
+The website homepage is `index.html` at the repository root on `main`.
+Default production updates write this file after exporting the report; an
+identical local copy and supporting notebook/receipt stay under
+`outputs/report-production/`. Rehearsal runs and custom `--output` destinations
+do not automatically replace the homepage.
+
+In the GitHub repository, select **Settings → Pages → Deploy from a branch →
+main → /(root)**. The root `.nojekyll` file tells GitHub to serve the static
+files directly. No separate publishing branch or custom workflow is required.
+GitHub Pages has not yet been configured remotely.
+
+For each update, run from the project root:
+
+```sh
+uv run update-report.py --environment production
+git add index.html
+git commit -m "Update election-night report"
+git push origin main
+```
+
+The remote must be configured first, and the initial push must include
+`.nojekyll` and the source files. Report generation does not commit or upload
+automatically. A rendered waiting or failed-update page can also be published
+to communicate feed status. If execution/export fails, the previous homepage
+remains intact; inspect the command outcome before committing.
+
+Publishing from the root also makes other tracked files available as static
+files. The ignored data, notebooks, caches, logs and archived Git history are
+absent from the repository and are not uploaded.
 
 Ignoring a folder keeps it out of normal commits; force-adding its files would
 override that exclusion. Preserve the exclusions when adding a GitHub remote.

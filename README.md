@@ -12,7 +12,9 @@ uv run update-report.py --environment production
 
 This pulls one preliminary snapshot, executes **election-night.py** (`# %%`
 cells), fits the frozen model when data is available, and atomically writes
-**outputs/report-production/index.html** with code hidden and charts embedded.
+**index.html** at the project root with code hidden and charts embedded. A local
+copy and supporting artifacts stay in `outputs/report-production/`. GitHub Pages
+can serve `main` → `/(root)`; see [PUBLICATION.md](PUBLICATION.md).
 Projected seats are the headline result, with party fixed/adjustment seats and
 the V+S+MP+C versus M+L+KD+SD chart (175 seats for a majority).
 It also shows 50%/90% seat ranges and simulated bloc distributions from 1,000

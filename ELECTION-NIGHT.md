@@ -132,7 +132,7 @@ estimate and gives the reason; the parser will need a documented adjustment.
 uv run update-report.py --environment production
 ```
 
-Open `outputs/report-production/index.html`. Repeat the command roughly every
+Open the root `index.html` (also copied under `outputs/report-production/`). Repeat the command roughly every
 ten minutes and reload the page. `election-night.py` can instead be run cell by
 cell in an editor using `.venv`. It pulls data itself; the wrapper additionally
 holds a lock through HTML export and executes a fresh notebook in the uv
@@ -215,8 +215,16 @@ Official references:
 ## Publishing
 
 The HTML is self-contained, with code hidden and PNG charts embedded. Only
-`index.html` needs uploading; do not publish the executed notebook, local data
-folders, receipts or source tree. Local HTML replacement is atomic.
+the root `index.html` changes for routine website updates. Default production
+runs replace it atomically after successful rendering. Rehearsal and custom
+renders do not automatically replace it. Notebooks, data and receipts stay in
+ignored folders.
+
+For GitHub Pages, serve **main → /(root)** with the root `.nojekyll` file.
+Commit and push the updated `index.html` to publish it; see
+[PUBLICATION.md](PUBLICATION.md). The other tracked source files are also
+accessible when serving the repository root. No remote deployment has yet been
+configured.
 
 A [private Sites preview](https://swedish-election-2026-rasmus.rasmus-baath.chatgpt.site) is published, with explicitly labelled rehearsal and failed-update examples. It is a fixed published snapshot,
 not an automatic upload service. For updates to that preview, ask Codex to
@@ -224,13 +232,10 @@ republish the existing Site; `site/.openai/hosting.json` identifies it. The loca
 Python command does not hold reusable Sites credentials. The static source lives
 under `site/dist/` and the hosted snapshot is built from that exact source.
 
-For unattended uploads directly from your computer, the remaining setup choice
-is a host with a reusable local publishing command and credentials (for example,
-your existing static host). Configure that destination before election day and
-publish a test report there. Upload to a temporary object/path or use the host's
-atomic version deployment, and promote it only after upload succeeds. Preserve
-the previous remote version on failure. No remote uploader or timer has been
-silently started here.
+The remaining GitHub setup is to create the public repository, add its remote,
+push `main`, and enable Pages from the root. Verify the deployed homepage after
+the first push. Local report generation does not commit, push or schedule future
+updates; those remain separate actions.
 
 ## Verification performed
 

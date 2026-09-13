@@ -234,7 +234,7 @@ uv run update-report.py --environment production
 
 The readiness check does not fit or publish a forecast. It verifies the local setup, frozen inputs and feed. Exit code 2 means a check remains pending, such as an unpublished production index; exit code 1 means a failure needing attention.
 
-The normal update collects one snapshot, validates it, executes the analysis and writes `outputs/report-production/index.html`. Run it again roughly every ten minutes and reload the file. No background schedule is started. Production estimates are suppressed before polls close.
+The normal update collects one snapshot, validates it, executes the analysis and writes the root `index.html` for GitHub Pages, retaining a local copy in `outputs/report-production/index.html`. Run it again roughly every ten minutes and reload the file; publishing requires committing and pushing the updated root HTML as described in `PUBLICATION.md`. No background schedule is started. Production estimates are suppressed before polls close.
 
 The analysis itself is `election-night.py`, a Python file organized into `# %%` cells. It can be run interactively in the project's environment. `update-report.py` executes those cells in a fresh notebook kernel, hides their code in the exported HTML, embeds the graphs, and replaces the previous HTML atomically after a successful export.
 

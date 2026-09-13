@@ -183,6 +183,31 @@ if __name__ == '__main__':
     unittest.main()
 
 class HtmlExportTests(unittest.TestCase):
+    def test_only_default_production_render_updates_homepage(self):
+        from unittest.mock import patch
+        from val2026.election_forecast import ROOT
+        spec = importlib.util.spec_from_file_location('update_report_pages_test', ROOT/'update-report.py')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        html = '<html><body>Election-night estimate</body></html>'
+        for environment, custom in [('production', False), ('rehearsal', False), ('production', True)]:
+            with self.subTest(environment=environment, custom=custom), tempfile.TemporaryDirectory() as folder:
+                root = Path(folder)
+                homepage = root/'index.html'
+                homepage.write_text('previous homepage')
+                state_path = root/'outputs'/f'latest-{environment}'/'report-state.json'
+                state_path.parent.mkdir(parents=True)
+                state_path.write_text(json.dumps({'test': environment == 'rehearsal', 'health': 'waiting'}))
+                output = root/'outputs/custom/index.html' if custom else None
+                with patch.object(module.NotebookClient, 'execute'), patch.object(
+                        module.HTMLExporter, 'from_notebook_node', return_value=(html, {})):
+                    receipt = module.render(root, environment, output=output)
+                expected = html if environment == 'production' and not custom else 'previous homepage'
+                self.assertEqual(homepage.read_text(), expected)
+                self.assertEqual(Path(receipt['output']).read_text(), html)
+                self.assertFalse((root/'executed.ipynb').exists())
+                self.assertFalse((root/'render-receipt.json').exists())
+
     def test_failed_notebook_keeps_previous_html(self):
         from unittest.mock import patch
         from val2026.election_forecast import ROOT

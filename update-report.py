@@ -5,6 +5,7 @@ uv run update-report.py --environment production
 uv run update-report.py --environment rehearsal
 Add --offline to render already cached data without claiming a new fetch.
 No background polling is started. Run again whenever an update is wanted.
+Default production runs also update root index.html for GitHub Pages.
 """
 import argparse
 from copy import deepcopy
@@ -81,7 +82,13 @@ def render(root, environment, *, offline=False, output=None, draws=1000):
                    'simulation_draws': state.get('uncertainty', {}).get('draws'),
                    'html_sha256': hashlib.sha256(html.encode()).hexdigest(),
                    'runtime_seconds': perf_counter() - started}
+        if environment == 'production' and output is None:
+            receipt['public_output'] = str(root / 'index.html')
         atomic_write(destination.parent / 'render-receipt.json', json_bytes(receipt))
+        # Publish only the default production render to the repository homepage.
+        # Keep supporting artifacts local; rehearsal/custom renders are isolated.
+        if 'public_output' in receipt:
+            atomic_write(root / 'index.html', html.encode())
         return receipt
 
 
@@ -94,7 +101,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     receipt = render(ROOT, args.environment, offline=args.offline,
                      output=args.output.resolve() if args.output else None, draws=args.draws)
-    print(f"Report: {receipt['output']}\nState: {receipt['health']}\nTotal time: {receipt['runtime_seconds']:.1f}s")
+    print(f"Report: {receipt.get('public_output', receipt['output'])}\nState: {receipt['health']}\nTotal time: {receipt['runtime_seconds']:.1f}s")
     return receipt
 
 

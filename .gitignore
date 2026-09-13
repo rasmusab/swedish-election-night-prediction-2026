@@ -1,0 +1,24 @@
+.venv/
+.uv-cache/
+__pycache__/
+.DS_Store
+.ipynb_checkpoints/
+outputs/.report-update.lock
+# Local downloads, frozen input snapshots, collection caches and receipts.
+# Keep provenance documentation available in a fresh checkout.
+/data/*
+!/data/SOURCES.md
+!/data/processed/
+/data/processed/*
+!/data/processed/2022-report-times-SOURCE.md
+
+# Generated reports, notebooks, diagnostics and logs stay on this computer.
+# This configuration is a frozen runtime dependency, despite its folder name.
+/outputs/*
+!/outputs/selected-model.json
+
+# Original project archive (including publication-preparation backups).
+/old/
+
+# The published preview already has its own Git repository.
+/site/

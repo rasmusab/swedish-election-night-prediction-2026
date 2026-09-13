@@ -1,0 +1,20 @@
+{
+  "selected_name": "guarded_share_ridge",
+  "models": {
+    "guarded_share_ridge": {
+      "transform": "share",
+      "early_guard": true
+    }
+  },
+  "selection": "Mean party MAE over 5, 10, 25, 50% on synthetic development seeds 0\u20132",
+  "development_scores_pp": {
+    "share_ridge_v1": 0.11799362486110215,
+    "share_calibrated": 0.1318877166575694,
+    "share_more_shrinkage": 0.1325929455083323,
+    "share_less_shrinkage": 0.1365286664537629,
+    "clr_calibrated": 0.1481534632201846,
+    "clr_ridge_v1": 0.18585025253585682
+  },
+  "limitation": "Reserved reporting orders use the same 2022 election, not independent election outcomes.",
+  "startup_revision": "After archived-order weakness at 1%, use equal-weight county swing and regression through100 ordinary reports, transition to full regression by300. Compared full fallback, retained average blend; diagnostic uses same historical election."
+}

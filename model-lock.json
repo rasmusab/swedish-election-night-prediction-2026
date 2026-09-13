@@ -1,0 +1,26 @@
+{
+  "files": {
+    "val2026/forecast_model.py": "6a3c821690286631991cead8dd660ac178eeb3c5ccc89ae9edc3a177ae073ab8",
+    "val2026/replay.py": "d43ca290b239b6c444608fd661d2a2c650d91013d34438e255d6680e6aa9b5b0",
+    "outputs/selected-model.json": "3783e7cd95bda602536cf14b57d121175f7e0ba12e674a04f5661beb4ff127a5",
+    "uv.lock": "b112e770a1a00bc9ebe6e6669aac92d13dde6f093c3c8969cf8bc7aaf2b5f98b",
+    "val2026/seats.py": "12355d570095480d3adfbdb22cf3f6883d1054598ffd5c46ce868a704404f068",
+    "val2026/uncertainty.py": "2e0062950ec887d24111de2001901d58418b659c3a6a7b7f6c82119047cd9978",
+    "val2026/forecast_uncertainty.py": "481d42af635e16c65ac37fc2c233c08ceeb327fe5d9f0a02913930166242b124"
+  },
+  "purpose": "Frozen model options, implementation and runtime for the 2026 launch. No live hyperparameter selection.",
+  "lock_id": "153cff8aae010a4f89a18c12",
+  "layout_revision": {
+    "previous_lock_id": "9f0488c52cf866e60d5a957c",
+    "reason": "Files moved into val2026/ and imports qualified; project installed editable by uv. Model syntax and runtime dependency versions unchanged."
+  },
+  "seat_revision": {
+    "previous_lock_id": "0523867878baa6405ee2e343",
+    "reason": "Add independently implemented and historically validated seat allocation; vote model and dependency versions unchanged."
+  },
+  "uncertainty_revision": {
+    "previous_lock_id": "ebc3e7871ddccaf21a52c8bd",
+    "checkpoint_commit": "3239c6029a14ae2fa6bd655ef092f45094f64b64",
+    "reason": "Add approximate Bayesian joint predictive simulations and seat summaries; point regression, seat rules and dependencies unchanged."
+  }
+}

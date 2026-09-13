@@ -40,7 +40,7 @@ constituency,party,fixed_seats,adjustment_seats,seats
 05,L,1,0,1
 05,M,3,0,3
 05,MP,1,0,1
-05,S,4,0,4
+05,S,4,1,5
 05,SD,2,1,3
 05,V,1,0,1
 05,ÖVR,0,0,0
@@ -247,7 +247,7 @@ constituency,party,fixed_seats,adjustment_seats,seats
 28,L,0,0,0
 28,M,1,0,1
 28,MP,1,0,1
-28,S,3,1,4
+28,S,3,0,3
 28,SD,1,0,1
 28,V,1,0,1
 28,ÖVR,0,0,0

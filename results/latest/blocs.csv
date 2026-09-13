@@ -1,3 +1,3 @@
 bloc,parties,forecast_seats,majority_threshold,majority_probability,seat_mean,seat_median,seat_lower_50,seat_upper_50,seat_lower_90,seat_upper_90
-V + S + MP + C,V+S+MP+C,154,175,0.096,153.3875,154,142,164,126,180
-M + L + KD + SD,M+L+KD+SD,195,175,0.904,195.6125,195,185,207,169,223
+V + S + MP + C,V+S+MP+C,165,175,0.1835,163.84075,164,156,172,143,183
+M + L + KD + SD,M+L+KD+SD,184,175,0.8165,185.15925,185,177,193,166,206

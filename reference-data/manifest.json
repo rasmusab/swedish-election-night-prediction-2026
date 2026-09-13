@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "8fb52b29e31aca073254ec28",
+  "prepared_at_utc": "2026-09-08T06:25:22.236433+00:00",
+  "files": {
+    "reference-data/baseline-2026.csv": {
+      "sha256": "c4ba5fbdb874e5acc5c1c8bfb5a3e8e3f33e15d042a6c0a25ab74f4db395c70a",
+      "bytes": 2071126
+    },
+    "reference-data/ordinary-roster.csv": {
+      "sha256": "bc911629dd524d92da5154a5054277a5522f549871af0a96a35099231af8057b",
+      "bytes": 360465
+    },
+    "reference-data/fixed-seats-2026.csv": {
+      "sha256": "6d831c55d8ae5c4e64f007fdb4e0cf8180250721397c3bfc0ff27a33af033641",
+      "bytes": 747
+    }
+  },
+  "sources": [
+    {
+      "filename": "riksdag-2022-final.xlsx",
+      "url": "https://www.val.se/download/18.162047b519a91d0533118f4b/1764336897948/Roster-per-distrikt-slutligt-antal-roster-inklusive-totalt-valdeltagande-riksdagsvalet-2022.xlsx",
+      "source_page": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-fran-val-2002-2022",
+      "sha256": "02220e73a7f497d02e23e11cc0765b9891f3a11b3738a5750182ca0c2c58a04d",
+      "bytes": 16671193
+    },
+    {
+      "filename": "valdistrikt-jamforelser-mellan-2022-och-2026.xlsx",
+      "url": "https://www.val.se/download/18.1a2972da19f159e73fd3a47/1787064655347/valdistrikt-jamforelser-mellan-2022-och-2026.xlsx",
+      "source_page": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
+      "sha256": "f1e43ca9f871568cd9ec72c1dd8033e42e6b2d333d3033c01d0dccedf21f1ae8",
+      "bytes": 319333
+    },
+    {
+      "filename": "electorate-2026.xlsx",
+      "url": "https://www.val.se/download/18.1a2972da19f159e73fd3b4a/1787064446298/antal-rostberattigade-per-valdistrikt-uppdelat-pa-kon-och-alder-kvalifikationsdagen-14-augusti-2026-val-till-riksdagen.xlsx",
+      "source_page": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
+      "sha256": "45f77e862456f221907c6e49c52b2504106d35099782f96873637a0ba4e3d580",
+      "bytes": 651253
+    },
+    {
+      "filename": "fasta-valkretsmandat-val-2026.xlsx",
+      "url": "https://www.val.se/download/18.4005a7d19dee20a8ea531/1778074822037/fasta-valkretsmandat-val-2026.xlsx",
+      "source_page": "https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026",
+      "sha256": "caa41481ce8c1c9602d30399afe9e92fc59da60bc0fab180b08035f3e3975eb5",
+      "bytes": 36861
+    }
+  ]
+}

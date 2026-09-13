@@ -1,0 +1,30 @@
+constituency,name,fixed_seats
+01,Stockholms kommun,29
+02,Stockholms län,41
+03,Uppsala län,12
+04,Södermanlands län,9
+05,Östergötlands län,14
+06,Jönköpings län,11
+07,Kronobergs län,6
+08,Kalmar län,7
+09,Gotlands län,2
+10,Blekinge län,5
+11,Malmö kommun,10
+12,Skåne läns västra,9
+13,Skåne läns södra,12
+14,Skåne läns norra och östra,10
+15,Hallands län,10
+16,Göteborgs kommun,18
+17,Västra Götalands läns västra,11
+18,Västra Götalands läns norra,8
+19,Västra Götalands läns södra,7
+20,Västra Götalands läns östra,8
+21,Värmlands län,9
+22,Örebro län,9
+23,Västmanlands län,8
+24,Dalarnas län,9
+25,Gävleborgs län,9
+26,Västernorrlands län,7
+27,Jämtlands län,4
+28,Västerbottens län,8
+29,Norrbottens län,8

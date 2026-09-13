@@ -1,3 +1,5 @@
+**This is 100% vibecoded, look at at your own risk.**
+
 # Swedish election 2026
 
 [Election-night report](https://rasmusab.github.io/swedish-election-night-prediction-2026/) ·

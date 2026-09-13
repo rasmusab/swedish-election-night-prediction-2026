@@ -224,8 +224,8 @@ For GitHub Pages, serve **main → /(root)** with the root `.nojekyll` file.
 Commit and push the updated `index.html` to publish it; see
 [PUBLICATION.md](PUBLICATION.md). The other tracked source files are also
 accessible when serving the repository root. The public repository is
-[rasmusab/swedish-election-2026](https://github.com/rasmusab/swedish-election-2026),
-and Pages is configured at https://rasmusab.github.io/swedish-election-2026/.
+[rasmusab/swedish-election-night-prediction-2026](https://github.com/rasmusab/swedish-election-night-prediction-2026),
+and Pages is configured at https://rasmusab.github.io/swedish-election-night-prediction-2026/.
 
 A [private Sites preview](https://swedish-election-2026-rasmus.rasmus-baath.chatgpt.site) is published, with explicitly labelled rehearsal and failed-update examples. It is a fixed published snapshot,
 not an automatic upload service. For updates to that preview, ask Codex to

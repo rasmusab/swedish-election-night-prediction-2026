@@ -53,8 +53,8 @@ main → /(root)**. The root `.nojekyll` file tells GitHub to serve the static
 files directly. No separate publishing branch or custom workflow is required.
 Configured on 13 September 2026:
 
-- Repository: https://github.com/rasmusab/swedish-election-2026
-- Website: https://rasmusab.github.io/swedish-election-2026/
+- Repository: https://github.com/rasmusab/swedish-election-night-prediction-2026
+- Website: https://rasmusab.github.io/swedish-election-night-prediction-2026/
 - Local `origin` points to this repository; `main` tracks `origin/main`.
 
 For each update, run from the project root:

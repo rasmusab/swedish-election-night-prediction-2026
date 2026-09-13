@@ -1,7 +1,7 @@
 # Swedish election 2026
 
-[Election-night report](https://rasmusab.github.io/swedish-election-2026/) ·
-[Source repository](https://github.com/rasmusab/swedish-election-2026)
+[Election-night report](https://rasmusab.github.io/swedish-election-night-prediction-2026/) ·
+[Source repository](https://github.com/rasmusab/swedish-election-night-prediction-2026)
 
 See [intro.md](intro.md) for a high-level introduction to the data, statistical
 model, uncertainty and Python workflow, followed by implementation details.

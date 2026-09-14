@@ -2,11 +2,11 @@
   "schema_version": 1,
   "environment": "production",
   "test": false,
-  "report_generated_at_utc": "2026-09-14T02:00:01.642536+00:00",
-  "report_health": "ok",
+  "report_generated_at_utc": "2026-09-14T02:10:01.612324+00:00",
+  "report_health": "update_failed",
   "estimate_available": true,
   "estimate_state": "forecast",
-  "retained_previous_estimate": false,
+  "retained_previous_estimate": true,
   "estimate_generated_at_utc": "2026-09-14T02:00:01.642536+00:00",
   "count": "preliminary",
   "phase": "election_night",
@@ -19,9 +19,9 @@
     "archive_md5": "bb437b53ea1cceeebf394d4bcee9dbae"
   },
   "latest_collection_check": {
-    "checked_at_utc": "2026-09-14T02:00:01.642773+00:00",
-    "status": "ok",
-    "collection_state": "updated",
+    "checked_at_utc": "2026-09-14T02:10:01.612632+00:00",
+    "status": "error",
+    "collection_state": "error",
     "http_status": null
   },
   "reference_snapshot_id": "8fb52b29e31aca073254ec28",
@@ -88,7 +88,7 @@
   },
   "uncertainty_method": "approximate_bayesian_predictive_simulation",
   "uncertainty_calibration_status": "assumption_based_single_election_checks",
-  "bundle_source_commit": "1923c50a6f7f1c1ed9d1ca73e730a6ac0641eef5",
+  "bundle_source_commit": "858d6eece92f04ee06cbf72f6b1bbac9f26a0339",
   "working_code_sha256": {
     "val2026/__init__.py": "41e26c087f648e254d05a4079d6781286ffa9db01bd6c2f42716b4fc800d46a1",
     "val2026/election_data.py": "a7743d7a3308cb0885a0d9209c52a38e3dc4a975f30539d2383ac285c8fd09e9",
@@ -114,8 +114,8 @@
   "code_note": "Working code hashes describe this export. The model lock and estimate timestamp describe the displayed forecast, which may have been retained from an earlier run.",
   "files": {
     "index.html": {
-      "sha256": "5b5c0013c82f50d6c12be10ae14fffc24b0d408cf77ec45f03195ab66f3c69f8",
-      "bytes": 554372
+      "sha256": "1c2aaf9354ff4ecfa076fff34a977531bd6b5bdde5acb149f384bbcb07aec7d7",
+      "bytes": 554574
     },
     "reference-data/baseline-2026.csv": {
       "sha256": "c4ba5fbdb874e5acc5c1c8bfb5a3e8e3f33e15d042a6c0a25ab74f4db395c70a",

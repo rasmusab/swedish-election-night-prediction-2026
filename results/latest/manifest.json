@@ -2,12 +2,12 @@
   "schema_version": 1,
   "environment": "production",
   "test": false,
-  "report_generated_at_utc": "2026-09-14T09:50:25.580913+00:00",
-  "report_health": "ok",
+  "report_generated_at_utc": "2026-09-14T10:00:01.641622+00:00",
+  "report_health": "stale",
   "estimate_available": true,
   "estimate_state": "forecast",
   "retained_previous_estimate": false,
-  "estimate_generated_at_utc": "2026-09-14T09:50:25.580913+00:00",
+  "estimate_generated_at_utc": "2026-09-14T10:00:01.641622+00:00",
   "count": "preliminary",
   "phase": "preliminary_pause",
   "ordinary_districts_observed": 6277,
@@ -19,9 +19,9 @@
     "archive_md5": "3ce299923d29daa040e283ff53df02e7"
   },
   "latest_collection_check": {
-    "checked_at_utc": "2026-09-14T09:50:25.581198+00:00",
+    "checked_at_utc": "2026-09-14T10:00:01.641909+00:00",
     "status": "ok",
-    "collection_state": "updated",
+    "collection_state": "unchanged",
     "http_status": null
   },
   "reference_snapshot_id": "8fb52b29e31aca073254ec28",
@@ -88,7 +88,7 @@
   },
   "uncertainty_method": "approximate_bayesian_predictive_simulation",
   "uncertainty_calibration_status": "assumption_based_single_election_checks",
-  "bundle_source_commit": "644b66f731877c5d493755c1e290bf1a341d47b3",
+  "bundle_source_commit": "1f6b10ccb3990d85bf78bd329cf590b1c97df852",
   "working_code_sha256": {
     "val2026/__init__.py": "41e26c087f648e254d05a4079d6781286ffa9db01bd6c2f42716b4fc800d46a1",
     "val2026/election_data.py": "a7743d7a3308cb0885a0d9209c52a38e3dc4a975f30539d2383ac285c8fd09e9",
@@ -114,8 +114,8 @@
   "code_note": "Working code hashes describe this export. The model lock and estimate timestamp describe the displayed forecast, which may have been retained from an earlier run.",
   "files": {
     "index.html": {
-      "sha256": "02f5a1a6de16296652de2559c0acd57d3195b28cbe993f60afb6094cffa1bfdb",
-      "bytes": 553429
+      "sha256": "87b8d170b318eb1da9b5102318befc64313d4eee3d35954a2e8c5f42920681ca",
+      "bytes": 553448
     },
     "reference-data/baseline-2026.csv": {
       "sha256": "c4ba5fbdb874e5acc5c1c8bfb5a3e8e3f33e15d042a6c0a25ab74f4db395c70a",

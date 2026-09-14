@@ -2,24 +2,24 @@
   "schema_version": 1,
   "environment": "production",
   "test": false,
-  "report_generated_at_utc": "2026-09-14T03:00:01.634116+00:00",
+  "report_generated_at_utc": "2026-09-14T03:10:01.640124+00:00",
   "report_health": "ok",
   "estimate_available": true,
   "estimate_state": "forecast",
   "retained_previous_estimate": false,
-  "estimate_generated_at_utc": "2026-09-14T03:00:01.634116+00:00",
+  "estimate_generated_at_utc": "2026-09-14T03:10:01.640124+00:00",
   "count": "preliminary",
   "phase": "election_night",
   "ordinary_districts_observed": 6273,
   "expected_vote_weight_reported_pct": 99.45517166733579,
-  "source_updated_at": "2026-09-14T04:57:11",
+  "source_updated_at": "2026-09-14T05:01:08",
   "source": {
     "archive_url": "https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip",
-    "archive_sha256": "40c174aa2be90270bf90afcb6ba1dfca7c9156c8ebdfe0edd55f8b6690c78f20",
-    "archive_md5": "f2c8cd961a6e06974cb9e2f0ea7845f2"
+    "archive_sha256": "bf88fe68f695d737350b60c65f0c26d7bddb8747262c3e882be465594a812bc5",
+    "archive_md5": "db6d34701bcf33126c817bab4bf97387"
   },
   "latest_collection_check": {
-    "checked_at_utc": "2026-09-14T03:00:01.634304+00:00",
+    "checked_at_utc": "2026-09-14T03:10:01.640361+00:00",
     "status": "ok",
     "collection_state": "updated",
     "http_status": null
@@ -88,7 +88,7 @@
   },
   "uncertainty_method": "approximate_bayesian_predictive_simulation",
   "uncertainty_calibration_status": "assumption_based_single_election_checks",
-  "bundle_source_commit": "feb3364136937a157eb51c55d6bbe8d7b11fef62",
+  "bundle_source_commit": "a2f07af15abc09a61a4a3af729d5c6964440306d",
   "working_code_sha256": {
     "val2026/__init__.py": "41e26c087f648e254d05a4079d6781286ffa9db01bd6c2f42716b4fc800d46a1",
     "val2026/election_data.py": "a7743d7a3308cb0885a0d9209c52a38e3dc4a975f30539d2383ac285c8fd09e9",
@@ -114,8 +114,8 @@
   "code_note": "Working code hashes describe this export. The model lock and estimate timestamp describe the displayed forecast, which may have been retained from an earlier run.",
   "files": {
     "index.html": {
-      "sha256": "81ea4320b80ada50563e25e97cb295266ad51b045781ef11a75f248cd17733d2",
-      "bytes": 553540
+      "sha256": "5b79fa8e6c40c07f872fdd894424dcf9a39f15b77ef0ef23809f075bba083484",
+      "bytes": 554132
     },
     "reference-data/baseline-2026.csv": {
       "sha256": "c4ba5fbdb874e5acc5c1c8bfb5a3e8e3f33e15d042a6c0a25ab74f4db395c70a",

@@ -186,7 +186,7 @@ constituency,party,fixed_seats,adjustment_seats,seats
 21,MP,0,0,0
 21,S,3,0,3
 21,SD,2,0,2
-21,V,0,0,0
+21,V,0,1,1
 21,ÖVR,0,0,0
 22,C,0,1,1
 22,KD,1,0,1
@@ -231,7 +231,7 @@ constituency,party,fixed_seats,adjustment_seats,seats
 26,MP,0,0,0
 26,S,3,0,3
 26,SD,2,0,2
-26,V,0,1,1
+26,V,0,0,0
 26,ÖVR,0,0,0
 27,C,0,0,0
 27,KD,0,0,0

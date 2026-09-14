@@ -2,26 +2,26 @@
   "schema_version": 1,
   "environment": "production",
   "test": false,
-  "report_generated_at_utc": "2026-09-14T10:10:01.631596+00:00",
+  "report_generated_at_utc": "2026-09-14T12:07:07.150504+00:00",
   "report_health": "stale",
   "estimate_available": true,
   "estimate_state": "forecast",
   "retained_previous_estimate": false,
-  "estimate_generated_at_utc": "2026-09-14T10:10:01.631596+00:00",
+  "estimate_generated_at_utc": "2026-09-14T12:07:07.150504+00:00",
   "count": "preliminary",
   "phase": "preliminary_pause",
-  "ordinary_districts_observed": 6277,
-  "expected_vote_weight_reported_pct": 99.51246464792993,
-  "source_updated_at": "2026-09-14T11:41:51",
+  "ordinary_districts_observed": 6288,
+  "expected_vote_weight_reported_pct": 99.67464460986339,
+  "source_updated_at": "2026-09-14T13:32:23",
   "source": {
     "archive_url": "https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip",
-    "archive_sha256": "d51b9e9f90395d27e67dd042238317fbc05d39d39f143bf9bdde2b93b8b1f80b",
-    "archive_md5": "3ce299923d29daa040e283ff53df02e7"
+    "archive_sha256": "dc68e5b6fb8642abfcd5d664733db04900ed47c7cc58361018f2e23e881a0549",
+    "archive_md5": "107c61dda8153f9bfca4bef0d0e99cf0"
   },
   "latest_collection_check": {
-    "checked_at_utc": "2026-09-14T10:10:01.631871+00:00",
+    "checked_at_utc": "2026-09-14T12:07:07.150805+00:00",
     "status": "ok",
-    "collection_state": "unchanged",
+    "collection_state": "updated",
     "http_status": null
   },
   "reference_snapshot_id": "8fb52b29e31aca073254ec28",
@@ -88,7 +88,7 @@
   },
   "uncertainty_method": "approximate_bayesian_predictive_simulation",
   "uncertainty_calibration_status": "assumption_based_single_election_checks",
-  "bundle_source_commit": "cdae890da1454283bc17775c7428b343766a7a91",
+  "bundle_source_commit": "4d5195524a78aadea6a8273ee4ed805f652a1387",
   "working_code_sha256": {
     "val2026/__init__.py": "41e26c087f648e254d05a4079d6781286ffa9db01bd6c2f42716b4fc800d46a1",
     "val2026/election_data.py": "a7743d7a3308cb0885a0d9209c52a38e3dc4a975f30539d2383ac285c8fd09e9",
@@ -114,8 +114,8 @@
   "code_note": "Working code hashes describe this export. The model lock and estimate timestamp describe the displayed forecast, which may have been retained from an earlier run.",
   "files": {
     "index.html": {
-      "sha256": "99a69156a6b558cf1600e4d94c4ea504153104ca0437842a85be94795914a740",
-      "bytes": 553448
+      "sha256": "937bb52058fc16c2ce680d84157ba89d061fbbcc6590268dba2cbae128a428ac",
+      "bytes": 553348
     },
     "reference-data/baseline-2026.csv": {
       "sha256": "c4ba5fbdb874e5acc5c1c8bfb5a3e8e3f33e15d042a6c0a25ab74f4db395c70a",
@@ -134,20 +134,20 @@
       "bytes": 2394
     },
     "results/latest/parties.csv": {
-      "sha256": "3136d8ecd8125fe41e77490e780f916ff92bad4488470441f9340bf232166d0e",
-      "bytes": 2158
+      "sha256": "8b9e206f52062990c2055e78b7eb769ab6a5363262fcd3d2d9d1799b64145882",
+      "bytes": 2154
     },
     "results/latest/constituency-seats.csv": {
       "sha256": "73ee6d1b6f78541cf4cd499593bf293d9786abf124da3e4573c02be1d0b46cce",
       "bytes": 3103
     },
     "results/latest/blocs.csv": {
-      "sha256": "9efe5e81cd3e9bb68e2bd252d189e9f2c0f6b4685eeb21a8114405ea351b3b45",
-      "bytes": 288
+      "sha256": "e42a43111334a74d699d153f70ac0e088bf191d4a482c357cfec87bc31228671",
+      "bytes": 284
     },
     "results/latest/seat-draws.csv": {
-      "sha256": "6cfa243ddf3d7981fd30cc2320833c9996de7d38ec73a15635dfff30d9eb6193",
-      "bytes": 155451
+      "sha256": "425acd02580affe1677be201e0e3e73e1f45ff245822ba4f94d25c56b4036eb1",
+      "bytes": 155477
     }
   }
 }
